@@ -12,6 +12,7 @@ gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record and postgres on Heroku
 group :development, :test do
   gem 'sqlite3'
+  gem 'pry-rails'
 end
 
 group :production do

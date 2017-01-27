@@ -1,0 +1,82 @@
+tuomas@Moon-unit /media/heap/Repos/ratebeer $ rails c
+Running via Spring preloader in process 6977
+Loading development environment (Rails 5.0.1)
+[1] pry(main)> brewski = Brewery.new name: "BrewDog", year: 2007
+=> #<Brewery:0x007f1bbeb109a0
+ id: nil,
+ name: "BrewDog",
+ year: 2007,
+ created_at: nil,
+ updated_at: nil>
+[2] pry(main)> brewski.save
+   (0.1ms)  begin transaction
+  SQL (1.3ms)  INSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "BrewDog"], ["year", 2007], ["created_at", 2017-01-27 19:50:02 UTC], ["updated_at", 2017-01-27 19:50:02 UTC]]
+   (196.3ms)  commit transaction
+=> true
+[3] pry(main)> brewski.beers.create name:"Punk IPA", style:"IPA"
+   (0.1ms)  begin transaction
+  SQL (0.9ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Punk IPA"], ["style", "IPA"], ["brewery_id", 5], ["created_at", 2017-01-27 19:50:42 UTC], ["updated_at", 2017-01-27 19:50:42 UTC]]
+   (155.7ms)  commit transaction
+=> #<Beer:0x007f1bbe706da0
+ id: 13,
+ name: "Punk IPA",
+ style: "IPA",
+ brewery_id: 5,
+ created_at: Fri, 27 Jan 2017 19:50:42 UTC +00:00,
+ updated_at: Fri, 27 Jan 2017 19:50:42 UTC +00:00>
+[4] pry(main)> brewski.beers.create name:"Nanny State", style:"lowalcohol"
+   (0.3ms)  begin transaction
+  SQL (2.5ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nanny State"], ["style", "lowalcohol"], ["brewery_id", 5], ["created_at", 2017-01-27 19:51:16 UTC], ["updated_at", 2017-01-27 19:51:16 UTC]]
+   (151.9ms)  commit transaction
+=> #<Beer:0x007f1bbe52da10
+ id: 14,
+ name: "Nanny State",
+ style: "lowalcohol",
+ brewery_id: 5,
+ created_at: Fri, 27 Jan 2017 19:51:16 UTC +00:00,
+ updated_at: Fri, 27 Jan 2017 19:51:16 UTC +00:00>
+[5] pry(main)> brewski.beers.first.ratings.create score:30
+  Beer Load (1.0ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."brewery_id" = ? ORDER BY "beers"."id" ASC LIMIT ?  [["brewery_id", 5], ["LIMIT", 1]]
+   (0.1ms)  begin transaction
+  SQL (2.0ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 30], ["beer_id", 13], ["created_at", 2017-01-27 19:52:37 UTC], ["updated_at", 2017-01-27 19:52:37 UTC]]
+   (205.2ms)  commit transaction
+=> #<Rating:0x007f1bbe3a0c60
+ id: 4,
+ score: 30,
+ beer_id: 13,
+ created_at: Fri, 27 Jan 2017 19:52:37 UTC +00:00,
+ updated_at: Fri, 27 Jan 2017 19:52:37 UTC +00:00>
+[6] pry(main)> brewski.beers.first.ratings.create score:25
+  Beer Load (0.9ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."brewery_id" = ? ORDER BY "beers"."id" ASC LIMIT ?  [["brewery_id", 5], ["LIMIT", 1]]
+   (0.2ms)  begin transaction
+  SQL (4.4ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 25], ["beer_id", 13], ["created_at", 2017-01-27 19:52:44 UTC], ["updated_at", 2017-01-27 19:52:44 UTC]]
+   (144.9ms)  commit transaction
+=> #<Rating:0x007f1bbe22bda8
+ id: 5,
+ score: 25,
+ beer_id: 13,
+ created_at: Fri, 27 Jan 2017 19:52:44 UTC +00:00,
+ updated_at: Fri, 27 Jan 2017 19:52:44 UTC +00:00>
+[7] pry(main)> brewski.beers.last.ratings.create score:2
+  Beer Load (0.8ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."brewery_id" = ? ORDER BY "beers"."id" DESC LIMIT ?  [["brewery_id", 5], ["LIMIT", 1]]
+   (0.2ms)  begin transaction
+  SQL (2.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 2], ["beer_id", 14], ["created_at", 2017-01-27 19:52:59 UTC], ["updated_at", 2017-01-27 19:52:59 UTC]]
+   (146.5ms)  commit transaction
+=> #<Rating:0x007f1bbe17fd78
+ id: 6,
+ score: 2,
+ beer_id: 14,
+ created_at: Fri, 27 Jan 2017 19:52:59 UTC +00:00,
+ updated_at: Fri, 27 Jan 2017 19:52:59 UTC +00:00>
+[8] pry(main)> brewski.beers.last.ratings.create score:8
+  Beer Load (1.2ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."brewery_id" = ? ORDER BY "beers"."id" DESC LIMIT ?  [["brewery_id", 5], ["LIMIT", 1]]
+   (0.2ms)  begin transaction
+  SQL (3.2ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 8], ["beer_id", 14], ["created_at", 2017-01-27 19:53:13 UTC], ["updated_at", 2017-01-27 19:53:13 UTC]]
+   (146.6ms)  commit transaction
+=> #<Rating:0x007f1bbe09a610
+ id: 7,
+ score: 8,
+ beer_id: 14,
+ created_at: Fri, 27 Jan 2017 19:53:13 UTC +00:00,
+ updated_at: Fri, 27 Jan 2017 19:53:13 UTC +00:00>
+[9] pry(main)>
