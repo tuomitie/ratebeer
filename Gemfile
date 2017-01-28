@@ -13,6 +13,7 @@ gem 'rails', '~> 5.0.1'
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
+  gem "better_errors"
 end
 
 group :production do
