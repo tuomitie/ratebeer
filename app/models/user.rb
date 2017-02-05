@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
   include RatingAverage
 
-  validates :username, uniqueness: true,
-            length: { minimum: 3, maximum: 30 }
+  has_secure_password
 
-  has_many :ratings   # käyttäjällä on monta ratingia
+  validates :username, uniqueness: true, length: { minimum: 3, maximum: 30 }
+  validates :password, :format => {:with => /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,}/ }
+
+  has_many :ratings, dependent: :destroy
+  has_many :memberships, dependent: :destroy
   has_many :beers, through: :ratings
+
+  def to_s
+    "#{username}"
+  end
 end
