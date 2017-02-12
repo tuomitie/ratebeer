@@ -26,7 +26,6 @@
         3,
         2,
         null,
-        null,
         null
       ],
       "/media/heap/Repos/ratebeer/app/models/concerns/rating_average.rb": [
@@ -627,6 +626,6 @@
         0
       ]
     },
-    "timestamp": 1486917525
+    "timestamp": 1486928774
   }
 }
