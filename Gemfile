@@ -16,6 +16,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-its'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -40,9 +41,6 @@ group :production do
   gem 'rails_12factor'
 end
 gem 'bcrypt', '~> 3.1.7'
-
-
-gem 'simplecov', require: false
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
