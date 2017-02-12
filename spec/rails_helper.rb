@@ -9,7 +9,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'helpers'
-require 'travis'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

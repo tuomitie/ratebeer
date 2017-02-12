@@ -138,8 +138,12 @@
         1,
         null,
         1,
-        88,
-        72,
+        110,
+        79,
+        null,
+        null,
+        1,
+        4,
         null,
         null
       ],
@@ -229,6 +233,7 @@
         null
       ],
       "/media/heap/Repos/ratebeer/app/controllers/beers_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -390,13 +395,6 @@
         null,
         1,
         null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
         null,
         1,
         1,
@@ -451,6 +449,7 @@
         0
       ],
       "/media/heap/Repos/ratebeer/app/controllers/beer_clubs_controller.rb": [
+        0,
         0,
         0,
         0,
@@ -628,6 +627,6 @@
         0
       ]
     },
-    "timestamp": 1486908028
+    "timestamp": 1486917525
   }
 }
