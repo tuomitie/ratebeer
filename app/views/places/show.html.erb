@@ -1,0 +1,18 @@
+<h2><%= @place.name %></h2>
+
+<p>
+  <%= @place.street %><br>
+  <%= @place.city %>, <%= @place.zip %>
+</p>
+<p>
+  <strong><%= @place.country %></strong>
+</p>
+<% unless @place.street.nil? ||  @place.city.nil? ||  @place.zip.nil? ||  @place.country.nil? %>
+<iframe
+width="600"
+height="450"
+frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJh6tjDO15d6xjyOxVxME1HOlk_6gbRxk
+    &q=<%= @place.street + @place.city + @place.zip + @place.country %>">
+</iframe>
+<% end %>

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+
+  root 'breweries#index'
   resources :memberships
   resources :beer_clubs
   resources :users
-  root 'breweries#index'
   resources :beers
   resources :breweries
   resources :ratings, only: [:index, :new, :create, :destroy]
   resource :session, only: [:new, :create, :destroy]
+  resources :places, only:[:index, :show]
 
   get 'signup', to: 'users#new', as: "signup"
   get 'signin', to: 'sessions#new', as: "signin"
