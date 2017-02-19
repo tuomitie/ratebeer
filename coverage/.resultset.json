@@ -26,6 +26,16 @@
         3,
         2,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
         null
       ],
       "/media/heap/Repos/ratebeer/app/models/concerns/rating_average.rb": [
@@ -137,7 +147,7 @@
         1,
         null,
         1,
-        110,
+        116,
         79,
         null,
         null,
@@ -405,6 +415,52 @@
         null,
         null
       ],
+      "/media/heap/Repos/ratebeer/lib/beermapping_api.rb": [
+        1,
+        1,
+        3,
+        null,
+        3,
+        3,
+        null,
+        3,
+        null,
+        2,
+        2,
+        3,
+        null,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null
+      ],
+      "/media/heap/Repos/ratebeer/app/models/place.rb": [
+        1,
+        1,
+        6,
+        null,
+        null
+      ],
+      "/media/heap/Repos/ratebeer/app/controllers/places_controller.rb": [
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        3,
+        3,
+        1,
+        null,
+        2,
+        null,
+        null,
+        null
+      ],
       "/media/heap/Repos/ratebeer/app/controllers/ratings_controller.rb": [
         1,
         1,
@@ -626,6 +682,6 @@
         0
       ]
     },
-    "timestamp": 1486928774
+    "timestamp": 1487497534
   }
 }

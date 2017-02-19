@@ -17,6 +17,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'rspec-its'
+  gem 'webmock'
 end
 
 group :development do
@@ -41,6 +42,8 @@ group :production do
   gem 'rails_12factor'
 end
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'httparty'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

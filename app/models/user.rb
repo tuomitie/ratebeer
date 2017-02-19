@@ -22,4 +22,14 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     ratings.order(score: :desc).limit(1).first.beer
   end
+
+  def favorite_style
+    return nil if ratings.empty?
+    h = Hash.new{[]}
+    # Laitetaan ratingit
+    ratings.each do |rating|
+      h[rating] += [rating.score]
+    end
+
+  end
 end
