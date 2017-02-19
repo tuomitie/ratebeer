@@ -11,6 +11,7 @@ class MembershipsController < ApplicationController
   # GET /memberships/1.json
   def show
     @memberships = Membership.all
+    @beer_clubs = BeerClub.all
   end
 
   # GET /memberships/new
@@ -30,7 +31,7 @@ class MembershipsController < ApplicationController
     @membership.user_id = current_user.id if current_user
     if @membership.save
       current_user.memberships << @membership
-      redirect_to user_path(current_user)
+      redirect_to @membership.beer_club, notice: "Welcome to the club, #{@membership.user.username}!"
     else
       @beer_clubs = BeerClub.all
       render :new
