@@ -9,6 +9,11 @@ class Beer < ActiveRecord::Base
   validates :style, presence: true
 
   def to_s
-    "#{self.name} | #{brewery.name}"
+    "#{self.name}"
+  end
+
+  def self.top(n)
+    sorted_by_rating_in_desc_order = Beer.all.sort_by{ |b| -(b.average_rating||0) }
+    sorted_by_rating_in_desc_order.take(n)
   end
 end

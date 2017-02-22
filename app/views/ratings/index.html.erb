@@ -1,11 +1,59 @@
-<h2>List of ratings</h2>
+<div class="page-header col-sm-12">
+  <h1>List of ratings
+    <small> - <%= @ratings.count %> in total</small>
+  </h1>
+</div>
 
-<p>Number of ratings: <%= @ratings.count %></p>
+<div class="col-sm-6">
+  <h2>Best breweries</h2>
+  <%= render 'list', nimi: @top_breweries %>
+</div>
 
-<ul class="list-group">
-  <% @ratings.each do |rating| %>
-      <li class="list-group-item"> <%= rating %> <%= link_to rating.user, rating.user %> </li>
-  <% end %>
-</ul>
+<div class="col-sm-6">
+  <h2>Best Beers</h2>
+  <%= render 'list', nimi: @top_beers %>
+</div>
 
-<%= link_to 'New Rating', new_rating_path, class:"btn btn-primary" %>
+<div class="col-sm-12">
+  <h2>Most active users</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Favourite beer</th>
+      <th>Preferred style</th>
+      <th>Favourite brewery</th>
+      <th>Ratings #</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @prolific_raters.each do |user| %>
+        <tr>
+          <td><%= user %> </td>
+          <td><%= user.favorite_beer %> </td>
+          <td> <%= user.favorite_style %></td>
+          <td><%= user.favorite_brewery.name %>  </td>
+          <td><%= user.ratings.count %>  </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+</div>
+
+<div class="col-sm-5">
+  <h2>Most recent ratings</h2>
+  <ul class="list-group">
+    <% @recent_ratings.each do |rating| %>
+        <li class="list-group-item"> <%= rating.beer.name %>
+          <span class="badge"><%= rating.score %></span> <%= link_to rating.user, rating.user %> </li>
+    <% end %>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-sm-12"">
+  <%= link_to 'New Rating', new_rating_path, class: "btn btn-primary omanappi" %>
+  </div>
+</div>

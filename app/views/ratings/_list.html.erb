@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <% if nimi == @top_beers %><th>Beer name</th><% end %>
+    <% if nimi == @top_breweries %><th>Brewery name</th><% end %>
+    <th>Avg. rating</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% nimi.each do |asia| %>
+      <tr>
+        <td><%= link_to asia.name, asia %></td>
+        <td><%= asia.average_rating %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

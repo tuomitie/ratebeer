@@ -6,6 +6,8 @@ class Rating < ActiveRecord::Base
                                     less_than_or_equal_to: 50,
                                     only_integer: true }
 
+  scope :recent, -> { Rating.last(3) }
+
   def to_s
     "#{beer.name} #{self.score}"
   end
