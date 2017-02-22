@@ -29,7 +29,7 @@ describe "Rating" do
   it "total number of ratings is shown no the ratings page" do
     create_beers_with_ratings(user, 10, 20, 15, 7, 9)
     visit ratings_path
-    expect(page).to have_content 'Number of ratings: 5'
+    expect(page).to have_content '5 in total'
   end
 
   it "only shows users own ratings on their page" do
