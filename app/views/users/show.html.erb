@@ -1,10 +1,11 @@
 <h1><%= @user.username %></h1>
 
+
 <p>
   <% if @user.ratings.empty? %>
       No ratings yet!
   <% else %>
-      Has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= @user.average_rating %>
+      Has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= round(@user.average_rating) %>
   <% end %>
 </p>
 
