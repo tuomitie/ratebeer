@@ -1,9 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h1><%= @user.username %></h1>
 
 <p>
   <% if @user.ratings.empty? %>
@@ -14,12 +9,12 @@
 </p>
 
 <p>
-<ul>
+<ul class="list-group">
   <% @user.ratings.each do |rating| %>
-      <li>
+      <li class="list-group-item">
         <%= rating %>
         <% if @user == current_user %>
-            <%= link_to 'delete', rating, method: :delete, data: {confirm: 'Are you sure?'} %>
+            <span class="badge"><%= link_to 'delete', rating, method: :delete, data: {confirm: 'Are you sure?'} %></span>
         <% end %>
       </li>
   <% end %>
@@ -39,7 +34,7 @@
 </p>
 
 <% if @user == current_user %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %>
+    <%= link_to 'Destroy', @user, class:"btn btn-danger" , method: :delete, data: { confirm: 'Are you sure?' }%>
 <% end %>
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path, class:"btn btn-primary" %>
